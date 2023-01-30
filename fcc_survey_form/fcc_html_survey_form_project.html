@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <h1 id="title">Survey Form</h1>
+    <p>by Faheem Ahmed</p>
+    <p id="description">Please fill out this form with the required information</p>
+    <form id="survey-form" method="post" action='https://register-demo.freecodecamp.org'>
+
+
+
+        <fieldset>
+            <label id="name-label">Name: <input placeholder="first and last name" id="name" name="name" type="text"
+                    required /></label>
+            <label id="email-label">Email: <input placeholder="your email address" id="email" name="email" type="email"
+                    required /></label>
+            <label id="number-label">age (optional): <input placeholder="your age" id="number" type="number"
+                    name="number" min="10" max="120" /></label>
+        </fieldset>
+
+
+
+
+
+        <fieldset>
+            <label class="account-type">Account Type:</label>
+
+            <label for="personal-account"><input id="personal-account" type="radio" name="account-type" class="inline"
+                    value="1" /> Personal Account</label>
+            <label for="business-account"><input id="business-account" type="radio" name="account-type" class="inline"
+                    value="2" /> Business Account</label>
+            <label class="suggestions">Suggestions:</label>
+            <label for="1"></label><input id="1" type="checkbox" name="1" value="1" class="inline" /> option 1 </label>
+            <label for="1"></label><input id="2" type="checkbox" name="2" value="2" class="inline" /> option 2 </label>
+            <label for="1"></label><input id="3" type="checkbox" name="3" value="3" class="inline" /> option 3 </label>
+            <label for="1"></label><input id="4" type="checkbox" name="4" value="4" class="inline" /> option 4 </label>
+        </fieldset>
+
+
+
+
+        <fieldset>
+
+
+            <label id="dropdown-label">How did you hear about us?
+                <select id="dropdown" name="dropdown">
+                    <option value="">(select one)</option>
+                    <option value="1">freeCodeCamp News</option>
+                    <option value="2">freeCodeCamp YouTube Channel</option>
+                    <option value="3">freeCodeCamp Forum</option>
+                    <option value="4">Other</option>
+                </select>
+            </label>
+            <label for="bio">Feedback:
+                <textarea id="feedback" name="feedback" rows="3" cols="30" placeholder="I like coding..."></textarea>
+            </label>
+        </fieldset>
+
+
+
+
+        <input id="submit" type="submit" value="Submit" />
+    </form>
+</body>
+
+</html>
