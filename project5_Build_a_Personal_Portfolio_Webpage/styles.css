@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+  }
+  html {
+    scroll-behavior: smooth;   
+      }
+  
+  body{
+      font-family: Tahoma,sans-serif;
+    }
+  
+  
+  #navbar{
+    position: fixed;
+    width: 100vw;
+    background: grey;
+  }
+  #navbar a {
+    color: #f7f7f7;
+    text-decoration: none;
+  }
+  ul{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      list-style: none;
+      font-size: 1.6rem;
+      margin: auto 2rem;
+  }
+  li{
+    padding:1rem;
+  }
+  
+  section{
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  #welcome-section
+  {
+    height: 100vh;
+    background: #be3144;
+    justify-content: center;
+  }
+  #projects, #contact{
+    padding: 0;
+  }
+  #projects{
+    background: #45567d;
+  }
+  .grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding-top: 3rem;
+  }
+  .project{
+  width:30vw;
+  height:30vw;
+  border: 3px solid grey;
+  border-radius:3rem 0;
+  box-shadow: 0.4rem 0.4rem 1rem black;
+  }
+  
+  .project-tile{
+  font-size: calc(8px + (80 - 8) * ((100vw - 200px) / (1600 - 200)));
+  color: #d7d7d7;
+  text-align: center;
+  padding: 3vw;
+  }
+  
+  #showall{
+    width: 10rem;
+    height: 4rem;
+    margin: 3rem auto;
+    background: #3b3b4f;
+    border: 2px solid #f7f7f7;
+    border-radius: 2rem;
+    }
+  #showall p{
+    font-size:1.2rem;
+    padding: 20;
+  }
+  
+  
+  #contact{
+    height: 90vh;
+    background: #303841;
+  }
+  h1{
+    color: #f7f7f7;
+    font-size: 2.5rem;
+  }
+  p{
+    font-size: 1rem;
+  }
+  a{
+    color: #f7f7f7;
+    text-decoration: none;
+  }
+  #contact>h1,#projects>h1{
+    padding-top:5rem;
+  }
+   #contact>p, footer>p{
+    padding-top:1rem;
+    color: #f7f7f7;
+  }
+  
+  .mylinks{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding-top: 20vh;
+  }
+  
+  .link>a{
+    padding: 0.2rem 0.5rem;
+    color: pink;
+    font-size: 2rem;
+  }
+  
+  footer{
+    height: 9vh;
+    padding: 0;
+    margin: 0;
+    background: #303841;
+    border-top: 0.3rem solid #be3144;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  @media(max-width:600px){
+  #contact{
+    height: 80vh;
+  }
+  footer{
+    height: 19vh;
+    display:flex;
+    flex-direction:column;
+  }
+  #mylinks{
+    padding-top: 10vh;
+  }
+  #link{
+    font-size: 1rem;
+  }
+  }
