@@ -1,0 +1,21 @@
+/*List logic*/
+@each $color in blue, black, red {
+    .#{$color}-bg {background-color: $color;}
+  }
+  
+/*Map logic*/
+$colors: (color1: orange, color2: yellow, color3: pink);
+
+@each $key, $color in $colors {
+  .#{$color}-text {color: $color;}
+}
+
+  
+    div {
+      height: 200px;
+      width: 200px;
+      line-height: 200px;
+    }
+    h1 {
+        text-align: center;
+    }
