@@ -27,12 +27,6 @@ function QuoteMachine() {
   useEffect(() => {
     getQuotes();
   }, []);
-
-  useEffect(() => {
-    if (quotes.length) {
-      getQuote();
-    }
-  }, [quotes]);
   
   return (
     <div

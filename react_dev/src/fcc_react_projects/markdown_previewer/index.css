@@ -4,10 +4,10 @@ body {
   
   #editor, #preview {
     background: white;
-      min-height: 400px;
+      min-height: 200px;
       border: 1px solid grey;
       border-radius: 5px;
   }
   #preview img {
-      max-width:50%
+      max-width:30%
   }
