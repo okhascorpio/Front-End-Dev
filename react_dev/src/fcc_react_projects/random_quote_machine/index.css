@@ -16,10 +16,7 @@
     color: white;
     text-decoration:none;
   }
-.btn {
-  min-width: 20vw;
-}
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 850px) {
     #buttons {
       flex-direction: column;
     }

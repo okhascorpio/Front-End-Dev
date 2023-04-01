@@ -1,0 +1,26 @@
+body {
+    background: #7ed6df;    
+  }
+  .quote-back{
+    height: 100vh;
+  }
+  #quote-box {
+    background: #f6e58d;
+    border-radius: 20px;
+   }
+ 
+   #author {
+    float: right;
+   }
+
+  a, a:hover {
+    color: white;
+    text-decoration:none;
+  }
+
+  span .btn  {
+    width: 40px;
+  }
+  .btn {
+    height: 40px;
+  }

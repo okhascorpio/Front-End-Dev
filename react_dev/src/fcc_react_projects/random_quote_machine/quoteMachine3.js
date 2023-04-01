@@ -1,23 +1,39 @@
 import React, { useState, useEffect } from "react";
-import quotes from "./quotes.json";
-import "./index.css";
-
-
+import './index.css';
 
 function QuoteMachine() {
+  const [quotes, setQuotes] = useState([]);
+
+  const getQuotes = async () => {
+    try {
+      const response = await fetch("https://raw.githubusercontent.com/okhascorpio/Front-End-Dev/main/react_dev/src/fcc_react_projects/random_quote_machine/quotes.json");
+      const data = await response.json();
+      setQuotes(data.quotes);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const [quote, setQuote] = useState({});
 
   const getQuote = () => {
-    const randomIndex = Math.floor(Math.random() * quotes.quotes.length);
-    const randomQuote = quotes.quotes[randomIndex];
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const randomQuote = quotes[randomIndex];
     console.log(randomQuote);
     setQuote(randomQuote);
   };
+  
 
   useEffect(() => {
-    getQuote();
+    getQuotes();
   }, []);
 
+  useEffect(() => {
+    if (quotes.length) {
+      getQuote();
+    }
+  }, [quotes]);
+  
   return (
     <div
       className="d-flex align-items-center justify-content-center mx-auto"
@@ -35,15 +51,15 @@ function QuoteMachine() {
                   <i className="fa fa-quote-right"></i>
                 </h2>
               </div>
-              <div id="author" class="text-right mr-3 mt-5">
+              <div id="author" class="text-center mr-3 mt-5">
                 <span>- {quote.author}</span>
               </div>
-            </div>
+            
             <div
               id="buttons"
-              className="d-flex align-items-center justify-content-center mx-auto"
+              className="d-flex align-items-center justify-content-between mt-5 w-100"
             >
-              <button className="btn btn-primary m-1" onClick={getQuote}>
+              <button id="new-quote" className="btn btn-primary m-1" onClick={getQuote}>
                 New Quote
               </button>
               <button className="btn btn-primary m-1">
@@ -55,7 +71,7 @@ function QuoteMachine() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="fa fa-twitter"></i> Share to Twitter
+                  <i className="fab fa-twitter"></i> Share to Twitter
                 </a>
               </button>
               <button className="btn btn-primary m-1">
@@ -68,13 +84,14 @@ function QuoteMachine() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="fa fa-tumblr"></i> Share to Tumblr
+                  <i className="fab fa-tumblr"></i> Share to Tumblr
                 </a>
               </button>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
