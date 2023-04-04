@@ -1,0 +1,65 @@
+body {
+  background: hsl(204, 80%, 75%);
+}
+
+#drum-box {
+  background-color: #cf67ef;
+  width: 650px;
+  height: 350px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+}
+
+
+#btn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+
+}
+
+.btn,
+.btn:focus {
+  height: 100px;
+  width: 100px;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.8);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+#control-box {
+  background: white;
+  width: 270px;
+  height: 270px;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+#power {
+  width: 27px;
+  margin: auto;
+}
+
+
+#display {
+  color: white;
+  height: 36px;
+  background-color: #cf67ef;
+  font-weight: bold;
+  padding-top: 2px;
+}
+
+@media screen and (max-width: 650px) {
+  #drum-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 650px;
+  }
+
+}
