@@ -1,6 +1,27 @@
 import React from "react";
 import "./styles.css";
 
+const createStore = Redux.createStore;
+// Redux
+// Define ADD, addMessage(), messageReducer(), and store here:
+
+const ADD = "ADD"
+const addMessage = (message) => {
+  return { type: ADD, message: message }
+}
+const stateReducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD: {
+
+      return [...state, action.message]
+    }
+    default: {
+      return state
+    }
+
+  }
+}
+const store = createStore(stateReducer)
 
 // URL of the JSON file containing audio data
 const data =
