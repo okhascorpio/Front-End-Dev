@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 
 const endsWithOp = /[-+×÷]$/;
-const endsWithOpAndMinus = /[-+×/]-$/;
+const endsWithOpAndMinus = /[-+×÷/]-$/;
 const initialState = {
   currentVal: "0",
   prevVal: "0",
@@ -111,13 +111,15 @@ class Calculator extends React.Component {
   }
 
   handleClearClick() {
-    const { formula } = this.state;
+    const { formula, evaluated } = this.state;
+    if(!evaluated){
     var temp = "";
     formula !== "" ? (temp = formula.slice(0, -1)) : (temp = "");
     this.setState({
       formula: temp,
-      currentVal: temp,
+      currentVal: temp !=='' ? temp : '0',
     });
+  }
   }
 
   render() {
@@ -125,6 +127,7 @@ class Calculator extends React.Component {
 
     return (
       <div className="calculator">
+        
         <div
           className="display d-flex justify-content-end align-items-center"
           id="formula-screen"
