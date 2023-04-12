@@ -45,6 +45,7 @@ function ClockApp() {
         <div className="timer-display">
           <DisplayTime
             displayTime={displayTime}
+            setDisplayTime={setDisplayTime}
             sessionActive={sessionActive}
             clockActive={clockActive}
           />
@@ -62,27 +63,14 @@ function ClockApp() {
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
-function countDown(setDisplayTime) {
-      let timerId;
 
-      timerId = setInterval(() => {
-        setDisplayTime((prevTime) =>  prevTime - 1)
-        console.log('prevtime',prevTime)
-      }, 1000);
-
-    return () => {
-      clearInterval(timerId);
-    };
-  
-  return null;
-}
 
 function DisplayTime({ displayTime, setDisplayTime, sessionActive, clockActive }) {
 
   React.useEffect(() => {
-    clockActive && countDown(setDisplayTime={setDisplayTime}) 
+    clockActive && countDown(displayTime={displayTime},setDisplayTime={setDisplayTime},clockActive={clockActive}) 
     //setCurrentTime(displayTime);
-  }, [displayTime, clockActive, countDown]);
+  }, [displayTime, clockActive, setDisplayTime]);
 
   return (
     <div className="display-time">
@@ -92,6 +80,22 @@ function DisplayTime({ displayTime, setDisplayTime, sessionActive, clockActive }
   );
 }
 
+
+function countDown({displayTime, setDisplayTime, clockActive}) {
+  React.useEffect(()=>  {   
+  let timerId;
+
+  if (clockActive && displayTime > 0) {
+    timerId = setInterval(() => {
+      setDisplayTime((prevTime) => prevTime - 1);
+    }, 1000);
+  }
+
+    return () => {
+      clearInterval(timerId);
+    };
+  }, [displayTime, clockActive])
+}
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
 
