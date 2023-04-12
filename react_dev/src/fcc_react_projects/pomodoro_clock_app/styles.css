@@ -1,0 +1,42 @@
+body {
+    background-color: #F8EFBA;
+    color: rgb(255, 255, 255);
+}
+h1, .controller-time, .author {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.713), -1px -1px 2px rgba(255, 255, 255, 0.611);
+}
+
+.timer-controls button{
+    width: 40px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.713), -1px -1px 2px rgba(255, 255, 255, 0.611);
+}
+
+.controller-time {
+font-size: 40px;
+}
+
+.timer-window {
+    padding: 20px 0;
+    width: 300px
+}
+.timer-window {
+    background: #FEA47F;
+    border-radius: 15px;
+    box-shadow: 4px 4px 6px rgb(0, 0, 0), -4px -4px 6px rgba(165, 165, 165, 0.611);
+}
+.play-pause-reset button {
+    width: 80px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.713), -1px -1px 2px rgba(255, 255, 255, 0.611);
+
+}
+
+span {
+    width: 50px;
+}
+
+.author {
+    
+
+    color: rgb(154, 65, 65);
+    margin-top: 50px;
+}
