@@ -1,167 +1,128 @@
 function ClockApp() {
-  const sessionObject = {
-    id: "session",
-    title: "Session",
-    length: 5,
-  };
-  const breakObject = {
-    id: "break",
-    title: "Break",
-    length: 5,
-  };
-  const stateObject = {
-    clockActive: false, // if timer not active the it is apused
-    sessionActive: true, //if session is not active the break is active
-  };
-  const [sessionTimer, setSessionTimer] = React.useState(sessionObject);
-  const [breakTimer, setBreakTimer] = React.useState(breakObject);
-  const [timerState, setTimerState] = React.useState(stateObject);
+  const [sessionTime, setSessionTime] = React.useState(5);
+  const [breakTime, setBreakTime] = React.useState(3);
+  const [clockActive, setClockActive] = React.useState(false);
+  const [sessionActive, setSessionActive] = React.useState(true);
+  const [displayTime, setDisplayTime] = React.useState(sessionTime);
 
+  const timeSettings = [
+    { title: "Break", time: breakTime, setTime: setBreakTime },
+    { title: "Session", time: sessionTime, setTime: setSessionTime },
+  ];
+  //console.log(timeSettings[1].time, displayTime)
+  function handlePlayPause(val) {
+    // set clock to be active
+    setClockActive(val === "play");
+  }
+
+  function handleReset() {
+    setSessionTime(25);
+    setBreakTime(5);
+    setDisplayTime(25);
+  }
+
+
+  
   return (
     <div className="container text-center mt-5">
       <h1>25 + 5 Clock</h1>
 
       <div className="set-intervals d-flex justify-content-between w-50 mx-auto mt-5">
-        <SetTime
-          timer={breakTimer}
-          setTimer={setBreakTimer}
-          timerState={timerState}
-          setTimerState={setTimerState}
-        />
-        <SetTime
-          timer={sessionTimer}
-          setTimer={setSessionTimer}
-          timerState={timerState}
-          setTimerState={setTimerState}
-        />
+        {timeSettings.map((setting) => (
+          <SetTime
+            key={setting.title}
+            title={setting.title}
+            time={setting.time}
+            setTime={setting.setTime}
+            clockActive={clockActive}
+            sessionActive={sessionActive}
+            displayTime={displayTime}
+            setDisplayTime={setDisplayTime}
+          />
+        ))}
       </div>
       <div className="timer-window border w-25 d-flex flex-column mx-auto mt-5">
         <div className="timer-display">
           <DisplayTime
-            sessionTimer={sessionTimer}
-            breakTimer={breakTimer}
-            timerState={timerState}
-            setTimerState={setTimerState}
+            displayTime={displayTime}
+            sessionActive={sessionActive}
+            clockActive={clockActive}
           />
+        </div>
+        <div className="play-pause-button">
+          <button onClick={() => handlePlayPause("play")}>Play</button>
+          <button onClick={() => handlePlayPause("pause")}>Pause</button>
+          <button onClick={() => handleReset()}>Reset</button>
+          <h1>{clockActive ? "Active" : "Not"}</h1>
         </div>
       </div>
     </div>
   );
 }
 
-function DisplayTime({ sessionTimer, breakTimer, timerState, setTimerState }) {
-  const { sessionActive, clockActive } = timerState;
-
-  let title, length;
-  if (sessionActive) {
-    title = sessionTimer.title;
-    length = sessionTimer.length;
-  } else {
-    title = breakTimer.title;
-    length = breakTimer.length;
-  }
-
-  const [currentTime, setCurrentTime] = React.useState(length);
-  const temp = length;
-  //console.log("title and length ", title, length);
-  
-  const setClockState = (bool) => {
-    setTimerState((prevState) => ({ ...prevState, clockActive: bool }));
-  };
-
-  const setSessionState = (bool) => {
-    setTimerState((prevState) => ({ ...prevState, sessionActive: bool }));
-  };
-
-  React.useEffect(() => {
-    let timerId;
-
-    // run if clock was not active and current time is not zero
-    if (clockActive && currentTime > 0) {
-      // set the state of clock as active
-      /*setTimerState((prevState) => ({
-        ...prevState,
-        clockActive: true,
-      }));*/
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+function countDown(setDisplayTime) {
+      let timerId;
 
       timerId = setInterval(() => {
-        setCurrentTime((prevTime) =>  prevTime - 1);
-        
+        setDisplayTime((prevTime) =>  prevTime - 1)
+        console.log('prevtime',prevTime)
       }, 1000);
-      //console.log(title, length);
-    } else if (clockActive && currentTime === 0) {
-      const toggle = !sessionActive;
-      setSessionState(toggle);
-      setCurrentTime((prevTime) =>  length)
-      console.log("2nd if",sessionActive ,"temp ", temp)
-    } else if (!clockActive && temp !== length && currentTime > 0) {
-      setCurrentTime((prevTime) =>  length)
-      console.log("3rd if ",sessionActive ,"temp ", temp)
-    }
-    
-    // if clock is running and session is active display session data
-    //clockActive && sessionActive ? setCurrentTime(length) : null;
-    //currentTime === 0 ? setPaused(true) : null;
 
     return () => {
       clearInterval(timerId);
     };
-  }, [clockActive, length, currentTime]);
+  
+  return null;
+}
+
+function DisplayTime({ displayTime, setDisplayTime, sessionActive, clockActive }) {
+
+  React.useEffect(() => {
+    clockActive && countDown(setDisplayTime={setDisplayTime}) 
+    //setCurrentTime(displayTime);
+  }, [displayTime, clockActive, countDown]);
 
   return (
-    <div>
-      <h1>{title}</h1>
-      <h1 id="session-time">{currentTime}</h1>
-      <div className="play-pause-buttons">
-          <button
-            onClick={() => {
-                setClockState(true);
-            }}
-          >
-            Play
-          </button>
-          <button
-            onClick={() => {
-                setClockState(false)
-            }}
-          >
-            Pause
-          </button>
-        </div>
+    <div className="display-time">
+      <h1 className="clock-title">{sessionActive ? "Session" : "Break"}</h1>
+      <h1 className="clock-time">{displayTime}</h1>
     </div>
   );
 }
 
-function SetTime({ timer, setTimer, timerState, setTimerState }) {
-  const { title, length } = timer;
-  const { clockActive } = timerState;
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 
-  const setSessionState = (bool) => {
-    setTimerState((prevState) => ({ ...prevState, sessionActive: bool }));
-  };
+function SetTime({
+  title,
+  time,
+  setTime,
+  clockActive,
+  sessionActive,
+  displayTime,
+  setDisplayTime,
+}) {
+  //const { title, time, setTime, clockActive } = props;
 
-  const Increment = () => {
-    if (!clockActive) {
-      //setSessionState(false);
-      setTimer((prevTimer) => ({ ...prevTimer, length: length + 1 }));
-    }
-  };
-  const Decrement = () => {
-    if (!clockActive) {
-      //setSessionState(false);
-      length > 1 &&
-        setTimer((prevTimer) => ({ ...prevTimer, length: length - 1 }));
-    }
+  const ChangeTime = (val) => {
+    !clockActive &&
+      time > 1 &&
+      (setTime((prevTime) => prevTime + val),
+      setDisplayTime((sessionActive && title === "Session") ? (time + val) : (!sessionActive && title === "Break") ? (time + val) : displayTime),
+      console.log('title ',title, 'session active? ',sessionActive)
+      );
   };
 
   return (
     <div className="timer-controls">
       <h1 className="timer-title">{title}</h1>
-      <button className="timer-decrement" onClick={Decrement}>
+      <button className="timer-decrement" onClick={() => ChangeTime(-1)}>
         <span className="timer-symbol">-</span>
       </button>
-      <span className="controller-time">{length}</span>
-      <button className="timer-increment" onClick={Increment}>
+      <span className="controller-time">{time}</span>
+      <button className="timer-increment" onClick={() => ChangeTime(+1)}>
         <span className="timer-symbol">+</span>
       </button>
     </div>
