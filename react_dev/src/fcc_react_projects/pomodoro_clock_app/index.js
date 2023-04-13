@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './styles.css';
 //import beepFile from 'https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav';
 const audioUrl =
   "https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav";
@@ -13,13 +13,8 @@ function ClockApp() {
   const audioBeep = React.useRef();
 
   const timeSettings = [
-    { id: "break", title: "Break", time: breakTime, setTime: setBreakTime },
-    {
-      id: "session",
-      title: "Session",
-      time: sessionTime,
-      setTime: setSessionTime,
-    },
+    { id: "break", title: "Break Length", time: breakTime, setTime: setBreakTime },
+    { id: "session", title: "Session Length", time: sessionTime, setTime: setSessionTime }
   ];
 
   function handlePlayPause() {
@@ -40,11 +35,11 @@ function ClockApp() {
     sessionActive
       ? setDisplayTime(sessionTime * 60)
       : setDisplayTime(breakTime * 60);
-  }, [sessionActive]);
+  }, [sessionTime,breakTime,setDisplayTime,sessionActive]);
 
   return (
-    <div className="container text-center p-5" >
-      <h1 className="title">Pomodoro Clock</h1>
+    <div className="text-center pt-5 px-4" >
+      <h1 className="title">Pomodoro Timer</h1>
 
       <div className="set-intervals d-flex justify-content-between mx-auto mt-5">
         {timeSettings.map((setting) => (
@@ -114,7 +109,7 @@ function DisplayTime({
     return () => {
       clearInterval(timerId);
     };
-  }, [displayTime, clockActive, setDisplayTime]);
+  }, [displayTime, clockActive, setDisplayTime, audioBeep, sessionActive, setSessionActive]);
 
   return (
     <div className="display-time">
@@ -160,11 +155,8 @@ function SetTime({
     !clockActive &&
       time >= 1 &&
       time <= 60 &&
-      (setTime((prevTime) => {
-        return (prevTime === 60 && val === 1) || (prevTime < 2 && val === -1)
-          ? prevTime
-          : prevTime + val;
-      }),
+      setTime((prevTime) => (prevTime === 60 && val === 1) || (prevTime < 2 && val === -1)? prevTime : prevTime + val)
+
       setDisplayTime(
         sessionActive &&
           title === "Session" &&
@@ -175,14 +167,14 @@ function SetTime({
             ((time < 60 && val === 1) || (time > 1 && val === -1))
           ? (time + val) * 60
           : displayTime
-      ));
+      );
   };
 
   return (
-    <div className="timer-controls">
-      <h1 id={id + "-label"} className="timer-title">
+    <div className="timer-controls d-flex flex-column align-items-center justify-content-between">
+      <h3 id={id + "-label"} className="timer-title">
         {title}
-      </h1>
+      </h3>
       <div className="button-block d-flex align-items-center">
       <button
         id={id + "-decrement"}

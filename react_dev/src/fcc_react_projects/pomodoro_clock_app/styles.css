@@ -2,17 +2,24 @@ body {
     background-color: #F8EFBA;
     color: rgb(255, 255, 255);
 }
-h1, .controller-time, .author {
+h1,h3, .controller-time, .author {
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.713), -1px -1px 2px rgba(255, 255, 255, 0.611);
 }
 
+.display-time h1 {
+font-size: 50px;
+}
+.set-intervals{
+    max-width: 700px;
+    margin: 60px;
+}
 .timer-controls button{
     width: 40px;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.713), -1px -1px 2px rgba(255, 255, 255, 0.611);
 }
 
 .controller-time {
-font-size: 40px;
+font-size: 32px;
 }
 
 .timer-window {
@@ -30,7 +37,7 @@ font-size: 40px;
 
 }
 
-span {
+.play-pause-reset span {
     width: 50px;
 }
 
