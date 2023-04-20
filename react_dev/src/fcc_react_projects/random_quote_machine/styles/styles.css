@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Handlee');
+body {
+  background: #ff3822c6;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.quote-back {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+#quote-box {
+  background: #f6e58d;
+  border-radius: 0 20px;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  box-shadow: 5px 3px 15px rgb(0, 0, 0);
+  
+}
+
+.quote-text{
+  font-family: 'Handlee', sans-serif;
+  font-size: min(max(3vw, 32px), 58px);
+  text-shadow: 4px 4px 4px #aaa;
+}
+
+#author {
+  margin-top: 50px;
+  float: right;
+}
+
+a,
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+#buttons {
+  margin: auto;
+  min-width: 650px;
+  
+  display: flex;
+  justify-content: space-between;
+  
+
+}
+
+.btn {
+  height: 40px;
+  min-width: 180px;
+  border-radius: 0 12px;
+  box-shadow: 3px 2px 8px rgb(0, 0, 0);
+  text-shadow: 2px 2px 3px #000000;
+  border: none;
+}
+.btn-secondary {
+  background-color: rgb(34, 219, 127);
+}
+.btn-secondary:hover {
+  background-color: rgb(86, 248, 167);;
+}
+.btn-info {
+  background-color: #00acee;
+}
+.btn-info:hover {
+  background-color: #4ac6f8;
+}
+.btn-primary {
+  background-color: #ff53f1;
+}
+.btn-primary:hover {
+  background-color: #fe7df4;
+}
+.author {
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.713), -1px -1px 2px rgba(255, 255, 255, 0.611);
+  margin-top: 50px;
+}
+@media screen and (max-width: 750px) {
+  #quote-box {
+    max-width: 93vw;
+  }
+
+  #buttons {
+    /* Reset all existing properties */
+    margin: 0;
+    min-width: auto;
+    display: block;
+    justify-content: initial;
+
+    /* Set new properties */
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 70vw;
+
+  }
+}
