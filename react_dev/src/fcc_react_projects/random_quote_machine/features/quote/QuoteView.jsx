@@ -17,7 +17,7 @@ export const QuoteView = () => {
             
             <div id="buttons">
               <button className="btn btn-secondary m-1" onClick={() => { dispatch(fetchQuote()) }}>New Quote</button>
-              <button className="btn btn-info m-1">
+              <button className="btn btn-success m-1">
                 <a
                   id="tweet-quote"
                   href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
@@ -43,7 +43,7 @@ export const QuoteView = () => {
                 </a>
               </button>
             </div>
-            <p className="author text-center">Designed and Coded by<br/>Faheem Ahmed<br/>(React / Redux)</p>
+            <p className="author text-center">Designed and Coded by<br/>Faheem Ahmed<br/>(React / Redux</p>
         </div>
     )
 }

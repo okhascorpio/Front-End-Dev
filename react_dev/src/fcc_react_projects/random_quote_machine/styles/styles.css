@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Handlee');
 body {
   background: #ff3822c6;
-  margin-top: 50px;
   text-align: center;
 }
 
@@ -16,8 +15,8 @@ body {
   background: #f6e58d;
   border-radius: 0 20px;
   max-width: 800px;
-  margin: 50px auto;
-  padding: 30px;
+  margin: 80px auto;
+  padding: 30px 20px;
   box-shadow: 5px 3px 15px rgb(0, 0, 0);
   
 }
@@ -29,7 +28,7 @@ body {
 }
 
 #author {
-  margin-top: 50px;
+  margin-top: 10px;
   float: right;
 }
 
@@ -63,10 +62,11 @@ a:hover {
 .btn-secondary:hover {
   background-color: rgb(86, 248, 167);;
 }
-.btn-info {
+
+.btn-success {
   background-color: #00acee;
 }
-.btn-info:hover {
+.btn-success:hover {
   background-color: #4ac6f8;
 }
 .btn-primary {
@@ -83,6 +83,8 @@ a:hover {
 @media screen and (max-width: 750px) {
   #quote-box {
     max-width: 93vw;
+    margin-top: 20px;
+    margin-bottom: 50px;
   }
 
   #buttons {
