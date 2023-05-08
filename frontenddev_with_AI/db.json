@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "id": "1001",
+      "product_name": "Men's Slim-Fit Jeans",
+      "description": "A pair of slim-fit jeans for men, made from high-quality denim with a comfortable stretch. Available in blue or black.",
+      "price": 49.99,
+      "size": "S",
+      "color": "Blue",
+      "availability": true
+    },
+    {
+      "id": "1002",
+      "product_name": "Women's Knit Sweater",
+      "description": "A cozy knit sweater for women, made from a soft wool blend. Available in various colors.",
+      "price": 59.99,
+      "size": "M",
+      "color": "Green",
+      "availability": true
+    },
+    {
+      "id": "1003",
+      "product_name": "Men's Leather Jacket",
+      "description": "A classic leather jacket for men, made from premium leather and lined with a soft cotton blend. Available in brown or black.",
+      "price": 149.99,
+      "size": "L",
+      "color": "Black",
+      "availability": false
+    },
+    {
+      "id": "1004",
+      "product_name": "Women's High-Waisted Jeans",
+      "description": "A pair of high-waisted jeans for women, made from stretchy denim with a flattering fit. Available in various sizes and colors.",
+      "price": 69.99,
+      "size": "XS",
+      "color": "Dark Wash",
+      "availability": true
+    },
+    {
+      "id": "1005",
+      "product_name": "Men's Crew Neck T-Shirt",
+      "description": "A classic crew neck t-shirt for men, made from soft cotton with a comfortable fit. Available in various colors.",
+      "price": 19.99,
+      "size": "XL",
+      "color": "White",
+      "availability": true
+    },
+    {
+      "id": "1006",
+      "product_name": "Women's Slip-On Sneakers",
+      "description": "A pair of slip-on sneakers for women, made from durable canvas with a comfortable insole. Available in various colors.",
+      "price": 39.99,
+      "size": "M",
+      "color": "Black",
+      "availability": true
+    },
+    {
+      "id": "1007",
+      "product_name": "Men's Oxford Shirt",
+      "description": "A classic oxford shirt for men, made from high-quality cotton with a traditional fit. Available in various colors.",
+      "price": 49.99,
+      "size": "L",
+      "color": "Blue",
+      "availability": true
+    },
+    {
+      "id": "1008",
+      "product_name": "Women's Maxi Dress",
+      "description": "A flowy maxi dress for women, made from lightweight fabric with a beautiful print. Available in various sizes and colors.",
+      "price": 79.99,
+      "size": "M",
+      "color": "Yellow",
+      "availability": true
+    },
+    {
+      "id": "1009",
+      "product_name": "Men's Athletic Shorts",
+      "description": "A pair of athletic shorts for men, made from moisture-wicking fabric with a comfortable fit. Available in various colors.",
+      "price": 29.99,
+      "size": "S",
+      "color": "Grey",
+      "availability": true
+    },
+    {
+      "id": "1010",
+      "product_name": "New Women's High-Waisted Jeans",
+      "description": "New pair of high-waisted jeans for women, made from stretchy denim with a flattering fit. Available in various sizes and colors.",
+      "price": 79.99,
+      "size": "XS",
+      "color": "Dark Wash",
+      "availability": true
+    }
+  ]
+}
