@@ -1,9 +1,9 @@
-import ClockApp from './fcc_react_projects/pomodoro_clock_app/index';
+import ClockApp from './fcc_react_projects/pomodoro_clock_app/index'; //Change this accordingly
 
 function App() {
   return (
 	<div>
-		<ClockApp/>
+		<ClockApp/> // Change this according to the app
 	</div>
   );
 }
